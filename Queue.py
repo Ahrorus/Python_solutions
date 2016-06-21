@@ -49,3 +49,40 @@ elif len(first) > len(second):
 else:
     print("second ", i)
 
+
+
+# Postfix calculator
+
+a = input().split()
+b = []
+
+for i in range(len(a)):
+    
+    if a[i] == '+':
+        j = len(b)
+        x = b[j - 2] + b[j - 1]
+        b.pop()
+        b.pop()
+        b.append(x)
+    
+    elif a[i] == '-':
+        j = len(b)
+        x = b[j - 2] - b[j - 1]
+        b.pop()
+        b.pop()
+        b.append(x)
+    
+    elif a[i] == '*':
+        j = len(b)
+        x = b[j - 2] * b[j - 1]
+        b.pop()
+        b.pop()
+        b.append(x)
+    
+    else:
+        x = int(a[i])
+        b.append(x)
+
+print(b[0])
+
+
